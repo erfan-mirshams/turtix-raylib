@@ -4,7 +4,7 @@
 # @file
 # @version 0.1
 CC = gcc
-CFLAGS = -c -Wall -Wextra -lraylib -lm
+CFLAGS = -c -Wall -Wextra -I./include -lraylib -lm
 LFLAGS = -Wall -Wextra -lraylib -lm
 
 SRC_DIR = src
@@ -33,4 +33,8 @@ $(BUILD_DIR):
 clean:
 	rm -rf $(BUILD_DIR) $(BIN_DIR)
 
-# end
+compile_commands.json: clean
+	bear -- make all
+
+.PHONY: compile_commands
+compile_commands: compile_commands.json
