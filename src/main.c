@@ -1,18 +1,13 @@
 #include "raylib.h"
 #include "general.h"
+#include "game.h"
+
 
 int main(void) {
-  InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "turtix");
+  InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, GAME_TITLE);
 
   while (!WindowShouldClose()) {
-    BeginDrawing();
-
-    ClearBackground(WHITE);
-
-    DrawText("Hello", 190, 200, 20,
-             BLACK);
-
-    EndDrawing();
+    runGame();
   }
   CloseWindow();
   return 0;
